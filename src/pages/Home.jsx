@@ -55,7 +55,7 @@ const Home = () => {
                             <div>
                                 <h2 className="text-accent font-medium tracking-wider uppercase text-sm md:text-base mb-2"></h2>
                                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-heading leading-tight text-slate-300">
-                                    Strategic Project <br className="hidden lg:block" /> Manager & <br />
+                                    Strategic Business Developer, <br className="hidden lg:block" />Project Manager & <br />
                                     <span className="text-slate-300">Digital Transformation Strategist</span>
                                 </h1>
                             </div>

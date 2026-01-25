@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="mb-4 md:mb-0">
                         <span className="text-xl font-bold font-heading text-white tracking-tight">Mubarak Aminu</span>
                         <p className="text-slate-400 text-sm mt-1">
-                            Strategic Project Management & Digital Transformation
+                            Strategic Business Developer & Digital Transformation Strategist
                         </p>
                     </div>
                     <p className="text-slate-500 text-sm">

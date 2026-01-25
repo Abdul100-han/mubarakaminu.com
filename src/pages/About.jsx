@@ -69,7 +69,7 @@ const About = () => {
                                     <div className="ml-4">
                                         <p className="text-sm font-medium text-slate-500">Email</p>
                                         <a href="mailto:Mubarakaminu08@gmail.com" className="text-base font-semibold text-primary hover:text-accent transition-colors">
-                                            Mubarakaminu08@gmail.com
+                                            mubarakmas08@gmail.com
                                         </a>
                                     </div>
                                 </div>
