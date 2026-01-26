@@ -91,7 +91,102 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Skills Section */}
+            {/* What I Do / How I Help Section */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="section-title">What I Do</h2>
+                        <p className="text-secondary mt-4 max-w-2xl mx-auto">Helping organizations build scalable solutions and drive meaningful impact.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { title: "Business & Market Development", desc: "Identifying opportunities, partnerships, and scalable growth strategies." },
+                            { title: "Digital Transformation Strategy", desc: "Helping organizations adopt technology to improve operations, impact, and growth." },
+                            { title: "Project & Program Management", desc: "Leading cross-functional teams to deliver complex projects on time and within scope." },
+                            { title: "Tech for Impact & Sustainability", desc: "Applying technology to climate action, education, and SDG-aligned initiatives." }
+                        ].map((item, index) => (
+                            <div key={index} className="bg-slate-50 p-6 rounded-xl border border-slate-100 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+                                <div className="h-2 w-12 bg-accent rounded-full mb-4"></div>
+                                <h3 className="text-lg font-bold text-primary mb-3 leading-tight">{item.title}</h3>
+                                <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
+            {/* Impact & Results Section */}
+            <section className="section-container bg-primary text-white relative overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+                <div className="relative z-10">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold font-heading mb-4">Impact & Experience Highlights</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        {[
+                            "Coordinated climate education programs across secondary schools in Northern Nigeria",
+                            "Managed multi-disciplinary teams using Jira, Google Workspace, and Microsoft Teams",
+                            "Supported startups in cybersecurity, agritech, and digital innovation",
+                            "Trained and mentored students and professionals in tech and digital skills"
+                        ].map((item, index) => (
+                            <div key={index} className="flex items-start p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                                <div className="mt-1.5 mr-4 h-2 w-2 rounded-full bg-accent flex-shrink-0"></div>
+                                <span className="text-lg text-slate-200">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Featured Projects / Experience Snapshot */}
+            <section className="bg-slate-50 py-16 md:py-24">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="section-title">Selected Experience</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            { title: "Total Secure Nigeria", role: "Business Development & Project Management" },
+                            { title: "Green Hub Africa", role: "Climate & Education Programs" },
+                            { title: "Bilic", role: "Startup Growth & Fundraising" }
+                        ].map((project, index) => (
+                            <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 flex flex-col items-start hover:-translate-y-1 transition-transform duration-300">
+                                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                                <p className="text-secondary font-medium mb-6">{project.role}</p>
+                                <Link to="/portfolio" className="mt-auto text-accent font-semibold hover:text-primary transition-colors flex items-center group">
+                                    View Full Portfolio
+                                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Speaking, Community & Leadership */}
+            <section className="section-container">
+                <div className="text-center mb-12">
+                    <h2 className="section-title">Community, Speaking & Leadership</h2>
+                </div>
+                <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+                    {[
+                        "Keynote Speaker – GDG / DevCon",
+                        "Former President – ABU Developers",
+                        "Google Developer Student Club – Core Team",
+                        "Tech & Climate Advocate"
+                    ].map((item, index) => (
+                        <div key={index} className="bg-white px-8 py-4 rounded-full border border-slate-200 shadow-sm text-primary font-medium hover:border-accent hover:text-accent transition-all duration-300 cursor-default">
+                            {item}
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Skills Section (Original) */}
             <section className="bg-slate-50 py-16 md:py-24">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
@@ -108,6 +203,24 @@ const Home = () => {
                                 <span className="text-primary font-medium">{skill}</span>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Strong Call to Action */}
+            <section className="bg-primary text-white py-20 text-center">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">Let’s Work Together</h2>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+                        Ready to drive innovation and sustainable growth? Let's collaborate.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/contact" className="btn btn-accent text-white font-semibold px-10 py-4 shadow-lg hover:shadow-accent/40 transform hover:-translate-y-1 transition-all">
+                            Contact Me
+                        </Link>
+                        <Link to="/portfolio" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary px-10 py-4">
+                            View My Portfolio
+                        </Link>
                     </div>
                 </div>
             </section>
