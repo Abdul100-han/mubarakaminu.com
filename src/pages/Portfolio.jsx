@@ -3,6 +3,16 @@ import { Briefcase, Calendar } from 'lucide-react';
 
 const experiences = [
     {
+        role: "Founder & Team Lead",
+        company: "PayNuq",
+        period: "2024 – Present",
+        achievements: [
+            "Built and scaled a community currency powering 100+ users, 8+ businesses, and ₦3M+ in local transactions.",
+            "Bootstrapped ₦15M+ liquidity to support business activity and community trade.",
+            "Led operations, partnerships, treasury management, and ecosystem engagement on Encointer (Kusama)."
+        ]
+    },
+    {
         role: "Founder & CEO",
         company: "Epipy Limited",
         period: "2020 – Present",
