@@ -144,25 +144,27 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Featured Projects / Experience Snapshot */}
+            {/* Role-Based Content Cards */}
             <section className="bg-slate-50 py-16 md:py-24">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="section-title">Selected Experience</h2>
-                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { title: "Total Secure Nigeria", role: "Business Development & Project Management" },
-                            { title: "Green Hub Africa", role: "Climate & Education Programs" },
-                            { title: "Bilic", role: "Startup Growth & Fundraising" }
-                        ].map((project, index) => (
+                            { 
+                                title: "Founder and CEO of Epipy Limited", 
+                                description: "Leads strategic growth, partnerships, and execution across business development, innovation, and project delivery."
+                            },
+                            { 
+                                title: "Co-founder of PayNuq", 
+                                description: "Driving product strategy, technology adoption, and scalable solutions in the fintech ecosystem."
+                            },
+                            { 
+                                title: "Managing Executive of Northern Founders Community", 
+                                description: "Building and supporting startup ecosystems through mentorship, collaboration, and access to opportunities."
+                            }
+                        ].map((role, index) => (
                             <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 flex flex-col items-start hover:-translate-y-1 transition-transform duration-300">
-                                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
-                                <p className="text-secondary font-medium mb-6">{project.role}</p>
-                                <Link to="/portfolio" className="mt-auto text-accent font-semibold hover:text-primary transition-colors flex items-center group">
-                                    View Full Portfolio
-                                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                                </Link>
+                                <h3 className="text-xl font-bold text-primary mb-4 leading-tight">{role.title}</h3>
+                                <p className="text-secondary text-sm leading-relaxed">{role.description}</p>
                             </div>
                         ))}
                     </div>
