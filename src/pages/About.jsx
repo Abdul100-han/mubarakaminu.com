@@ -1,5 +1,5 @@
-import React from 'react';
 import { Mail, Phone, User } from 'lucide-react';
+import profilePic from '../assets/mubaraks-profile-pic.jpeg';
 
 const About = () => {
     return (
@@ -18,28 +18,38 @@ const About = () => {
             <section className="section-container">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-6 text-lg text-secondary leading-relaxed text-justify md:text-left">
-                        <p>
-                            Dynamic entrepreneur, business strategist, and innovation leader with extensive experience in business development, project execution, and organizational transformation.
-                        </p>
-                        <p>
-                            Founder and CEO of Epipy Limited, a business development and management consultancy firm, driving ventures that enhance corporate performance, empower communities, and deliver scalable solutions across technology, agritech, and fintech sectors.
-                        </p>
-                        <p>
-                            Co-founder of PayNuq, a circular finance system enabling SMEs and local communities, and of AquaLife iFarms, whose smart aquaculture solutions have reached Egypt, Italy, Rwanda, and other global ecosystems, creating measurable impact in food security and sustainable practices.
-                        </p>
-                        <p>
-                            Led the strategy and operationalization of Farm Nation, developing agricultural value chains, training programs, and market linkages.
-                        </p>
-                        <p>
-                            Proven track record in business growth, client relationship management, and contract execution, working with clients such as 3logy, Interface, Eduvacty, Twistone, and other institutions.
-                        </p>
-                        <p>
-                            Globally trained and certified by Google, Meta, Cisco, University of Virginia, Tech Nation UK, UpGrad India, CGIAR, Forward-McKinsey & Company, among others.
-                        </p>
-                        <p className="font-medium text-primary">
-                            Mubarak blends strategic vision with hands-on operational excellence, delivering results in market expansion, project delivery, corporate transformation, and ecosystem building.
-                        </p>
+                    <div className="lg:col-span-2 space-y-6">
+                        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-8">
+                            <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100">
+                                <img src={profilePic} alt="Mubarak Aminu" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="flex-grow text-lg text-secondary leading-relaxed text-justify md:text-left space-y-4">
+                                <p>
+                                    Dynamic entrepreneur, business strategist, and innovation leader with extensive experience in business development, project execution, and organizational transformation.
+                                </p>
+                                <p>
+                                    Founder and CEO of Epipy Limited, a business development and management consultancy firm, driving ventures that enhance corporate performance, empower communities, and deliver scalable solutions across technology, agritech, and fintech sectors.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="text-lg text-secondary leading-relaxed text-justify md:text-left space-y-6">
+                            <p>
+                                Co-founder of PayNuq, a circular finance system enabling SMEs and local communities, and of AquaLife iFarms, whose smart aquaculture solutions have reached Egypt, Italy, Rwanda, and other global ecosystems, creating measurable impact in food security and sustainable practices.
+                            </p>
+                            <p>
+                                Led the strategy and operationalization of Farm Nation, developing agricultural value chains, training programs, and market linkages.
+                            </p>
+                            <p>
+                                Proven track record in business growth, client relationship management, and contract execution, working with clients such as 3logy, Interface, Eduvacty, Twistone, and other institutions.
+                            </p>
+                            <p>
+                                globally trained and certified by Google, Meta, Cisco, University of Virginia, Tech Nation UK, UpGrad India, CGIAR, Forward-McKinsey & Company, among others.
+                            </p>
+                            <p className="font-medium text-primary">
+                                Mubarak blends strategic vision with hands-on operational excellence, delivering results in market expansion, project delivery, corporate transformation, and ecosystem building.
+                            </p>
+                        </div>
                     </div>
 
                     {/* Sidebar / Contact Info */}
@@ -92,7 +102,7 @@ const About = () => {
                             <div className="mt-8 pt-6 border-t border-slate-100">
                                 <a
                                     href="/contact"
-                                    className="w-full btn btn-primary"
+                                    className="w-full btn btn-primary py-3 rounded-xl transition-all"
                                 >
                                     Get in Touch
                                 </a>

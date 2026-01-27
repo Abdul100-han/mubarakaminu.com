@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import profilePic from '../assets/mubaraks-profile-pic.jpeg'; // Assuming the path; user confirmed it's in assets.
 
 const Home = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const skills = [
         "Strategic Business Development & Market Expansion",
         "Project & Contract Management | Client Relationship Management",
@@ -196,13 +198,29 @@ const Home = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {skills.map((skill, index) => (
-                            <div key={index} className="card p-6 flex items-start hover:-translate-y-1 transition-transform duration-300 h-full">
+                            <div
+                                key={index}
+                                className={`card p-6 flex items-start hover:-translate-y-1 transition-transform duration-300 h-full ${index >= 3 ? 'hidden md:flex' : 'flex'
+                                    } ${isExpanded && index >= 3 ? '!flex' : ''
+                                    }`}
+                            >
                                 <div className="mr-4 mt-1">
                                     <div className="h-2 w-2 rounded-full bg-accent"></div>
                                 </div>
                                 <span className="text-primary font-medium">{skill}</span>
                             </div>
                         ))}
+                    </div>
+
+                    {/* View More Button - Mobile Only */}
+                    <div className="mt-10 text-center md:hidden">
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="text-accent font-bold flex items-center justify-center mx-auto hover:text-primary transition-colors"
+                        >
+                            {isExpanded ? 'Show Less' : 'View More'}
+                            <span className="ml-2">{isExpanded ? '↑' : '↓'}</span>
+                        </button>
                     </div>
                 </div>
             </section>
