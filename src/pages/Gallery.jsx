@@ -1,28 +1,43 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const descriptions = [
-    "Discussing sustainable farming solutions with industry leaders and stakeholders.",
-    "Engaging with local communities to understand ground-level challenges and opportunities.",
-    "Mapping out strategic roadmaps for next-generation digital transformation initiatives.",
-    "Networking with fellow founders, developers, and innovators at key tech gatherings.",
-    "Celebrating the successful deployment of automated systems and project milestones.",
-    "Mentoring young professionals on effective project management and leadership skills.",
-    "Conducting on-site assessments of facilities to ensure operational excellence.",
-    "Sharing insights on the future of FinTech and digital finance in emerging markets.",
-    "Fostering collaboration and innovation within cross-functional diverse teams.",
-    "Presenting detailed impact reports to key investors and international partners.",
-    "Recognized for contributions to sustainable development goals and community impact.",
-    "Exploring collaboration opportunities with international delegates and organizations.",
-    "Leading workshops on digital skills and future-of-work readiness.",
-    "Facilitating strategic sessions to drive business growth and market expansion.",
-    "Overseeing the implementation of smart agricultural technologies in rural areas.",
-    "Building partnerships to strengthen the local tech and startup ecosystem.",
-    "Advocating for climate action and sustainable business practices.",
-    "Coordinating large-scale community initiatives and volunteer programs.",
-    "Driving innovation in the financial sector through community-based solutions.",
-    "Empowering local businesses through digital tools and capacity building."
-];
+// Portfolio image descriptions are mapped by filename.
+const imageDescriptions = {
+    "1": "Professional training for Twistone Staff.",
+    "2": "With the founder of BILAAD REALTY on a business trip to TY DANJUMA logistics hub.",
+    "91": "After a successful business engagement session with SSA to Hon. Speaker house of representative. Hon. Abbas Tajudeen.",
+    "100": "After a training session with Voyage International School on Digital Transformation and Skills of the Future.",
+    "101": "Serving as field consultant on cattle tracking and monitoring system for NIRSAL.",
+    "16": "Digitizing cattle tracking ID and monitoring system.",
+    "94": "Serving as panelist on real world utility of blockchain.",
+    "12": "As a panelist during the MSSN students engagement on future skills.",
+    "11": "High level engagement with Northern investment forum and other stakeholders.",
+    "95": "After securing N50M for impact scholarships at Eduvacity where I serve as a business development specialist.",
+    "13": "Speaking about the real world utilities of blockchain during Polkadot meetup.",
+    "103": "Training stakeholders on climate smart systems for step-down training for Northern Nigeria.",
+    "17": "Invited to deliberate on the state of the UN SDGs at the UN House Nigeria.",
+    "7": "After a strategic meeting with the Hon. Ambassador of Bangladesh to Nigeria.",
+    "32": "Invited by CGIAR as a business development specialist on idea and business development sessions for Koolbox.",
+    "35": "Graced ONDI invitation during the 1st cohort of the iHatch program.",
+    "33": "Expatriate meeting with key stakeholders in Nigeria and the Ambassador of Bangladesh to Nigeria.",
+    "6": "High-level engagement on the state of Northern Nigeria alongside the Minister of Arts & Culture and DG of NITDA.",
+    "21": "After hosting a successful Founder–Investor meetup.",
+    "22": "Our community member won the iHatch program.",
+    "5": "After a high-level engagement with international business partners.",
+    "24": "With the tech team that developed the Moola fintech app where I served as project manager and business developer.",
+    "104": "With the country director of Social Good Fund USA after a strategic engagement.",
+    "41": "With other founders during the first NSIA Prize for Innovation at WE Innovation Hub.",
+    "4": "Invited to the LLaMA 3.1 Impact Hackathon in Kigali, Rwanda.",
+    "42": "Powerful product presentation at the CGIAR Innovation Program in Egypt.",
+    "3": "Successful business and idea refinement with founders across the world in Egypt.",
+    "44": "Active training session on business development and idea refinement.",
+    "45": "After winning the Unique Network Challenge in Naivasha, Kenya.",
+    "48": "With my flying crew during our UAV building session.",
+    "49": "Presentation on the impact of AI in education and content localization at LLaMA Impact Program Kigali.",
+    "47": "Finalist for the NSIA Prize for Innovation, Lagos.",
+    "WhatsApp Image 2026-01-25 at 15.53.23": "After a successful engagement with the Saudi business representative in Nigeria.",
+    "WhatsApp Image 2026-01-25 at 15.53.19": "As the state coordinator of the Climate Action Superhero Program, converting waste to wealth with my heroes."
+};
 
 const Gallery = () => {
     const [galleryItems, setGalleryItems] = useState([]);
@@ -35,40 +50,42 @@ const Gallery = () => {
         const items = Object.keys(images).map((path) => {
             const fileName = path.split('/').pop();
             const imageUrl = images[path].default;
-            return { fileName, imageUrl };
+            return { fileName, imageUrl, path };
         });
 
-        // Numeric sorting: 1-7 first, then other numbers, then non-numbered files
+        // Portfolio images are now numerically sorted by filename.
         items.sort((a, b) => {
-            const getSortKey = (name) => {
-                // Remove extension and extract leading number
-                const cleanName = name.split('.')[0];
-                const num = parseInt(cleanName, 10);
+            const getNumber = (src) =>
+                parseInt(src.split('/').pop().replace('.jpeg', '').replace('.jpg', '').replace('.png', ''), 10);
 
-                if (!isNaN(num)) {
-                    // Prioritize 1-7
-                    if (num >= 1 && num <= 7) return num;
-                    // Other numbers follow numerically
-                    return 1000 + num;
-                }
-                // Non-numbered files (e.g., WhatsApp images) at the end
-                return 5000;
-            };
+            const numA = getNumber(a.path);
+            const numB = getNumber(b.path);
 
-            const sortKeyA = getSortKey(a.fileName);
-            const sortKeyB = getSortKey(b.fileName);
-
-            if (sortKeyA !== sortKeyB) {
-                return sortKeyA - sortKeyB;
+            // Handle non-numeric filenames (put them at the end)
+            if (isNaN(numA) && isNaN(numB)) {
+                return a.fileName.localeCompare(b.fileName);
             }
-            return a.fileName.localeCompare(b.fileName);
+            if (isNaN(numA)) return 1;
+            if (isNaN(numB)) return -1;
+
+            // Prioritize 1-7 first, then other numbers in numeric order
+            const priorityA = (numA >= 1 && numA <= 7) ? numA : 1000 + numA;
+            const priorityB = (numB >= 1 && numB <= 7) ? numB : 1000 + numB;
+
+            return priorityA - priorityB;
         });
 
-        const processedItems = items.map((item, index) => ({
-            id: index,
-            image: item.imageUrl,
-            description: descriptions[index % descriptions.length]
-        }));
+        const processedItems = items.map((item, index) => {
+            // Extract filename without extension for description lookup
+            const filename = item.fileName.replace(/\.(jpeg|jpg|png)$/i, '');
+            const description = imageDescriptions[filename] || '';
+            
+            return {
+                id: index,
+                image: item.imageUrl,
+                description: description
+            };
+        });
 
         setGalleryItems(processedItems);
     }, []);
@@ -128,11 +145,13 @@ const Gallery = () => {
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                             </div>
 
-                            <div className="p-3 md:p-5 flex-grow flex items-center hidden md:flex">
-                                <p className="text-secondary text-sm leading-relaxed font-medium">
-                                    {item.description}
-                                </p>
-                            </div>
+                            {item.description && (
+                                <div className="p-3 md:p-5 flex-grow flex items-center">
+                                    <p className="text-secondary text-sm leading-relaxed font-medium">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -181,11 +200,13 @@ const Gallery = () => {
                             alt="Gallery Fullscreen"
                             className="w-auto h-auto max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl"
                         />
-                        <div className="mt-6 text-center text-white max-w-2xl bg-black/50 p-4 rounded-xl backdrop-blur-sm">
-                            <p className="text-base md:text-xl font-medium leading-relaxed">
-                                {galleryItems[selectedIndex].description}
-                            </p>
-                        </div>
+                        {galleryItems[selectedIndex].description && (
+                            <div className="mt-6 text-center text-white max-w-2xl bg-black/50 p-4 rounded-xl backdrop-blur-sm">
+                                <p className="text-base md:text-xl font-medium leading-relaxed">
+                                    {galleryItems[selectedIndex].description}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
