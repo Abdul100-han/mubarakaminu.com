@@ -3,9 +3,9 @@ import { Briefcase, Calendar } from 'lucide-react';
 
 const experiences = [
     {
-        role: "Founder & Team Lead",
+        role: "Founder",
         company: "PayNuq",
-        period: "2024 – Present",
+        // period: "2024 – Present",
         achievements: [
             "Built and scaled a community currency powering 100+ users, 8+ businesses, and ₦3M+ in local transactions.",
             "Bootstrapped ₦15M+ liquidity to support business activity and community trade.",
@@ -13,9 +13,9 @@ const experiences = [
         ]
     },
     {
-        role: "Founder & CEO",
+        role: "Founder",
         company: "Epipy Limited",
-        period: "2020 – Present",
+        // period: "2020 – Present",
         achievements: [
             "Lead multiple high-impact projects and ventures, including PayNuq (community financial ecosystem).",
             "Deliver strategic solutions, manage client contracts, and drive partnerships with organizations including 3logy, Interface, Eduvacty, Twistone, and others.",
@@ -26,7 +26,7 @@ const experiences = [
     {
         role: "Co-founder",
         company: "AquaLife iFarms",
-        period: "2020 – Present",
+        // period: "2020 – Present",
         achievements: [
             "Designed and executed smart automated aquaculture solutions.",
             "Automated water management, waste conversion, and sustainable feed systems.",
@@ -37,7 +37,7 @@ const experiences = [
     {
         role: "Management Executive",
         company: "Northern Founders Community",
-        period: "2023 – Present",
+        // period: "2023 – Present",
         achievements: [
             "Oversee community management and network growth.",
             "Lead partnership development and collaborations.",
