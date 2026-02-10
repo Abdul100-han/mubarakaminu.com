@@ -78,8 +78,8 @@ const About = () => {
                                     </div>
                                     <div className="ml-4">
                                         <p className="text-sm font-medium text-slate-500">Email</p>
-                                        <a href="mailto:Mubarakaminu08@gmail.com" className="text-base font-semibold text-primary hover:text-accent transition-colors">
-                                            Mubarakaminu08@gmail.com
+                                        <a href="mailto:mubarakmas08@gmail.com" className="text-base font-semibold text-primary hover:text-accent transition-colors">
+                                            mubarakmas08@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -92,8 +92,8 @@ const About = () => {
                                     </div>
                                     <div className="ml-4">
                                         <p className="text-sm font-medium text-slate-500">Phone</p>
-                                        <a href="tel:+2348061513531" className="text-base font-semibold text-primary hover:text-accent transition-colors">
-                                            +234 806 151 3531
+                                        <a href="tel:+2347070563194" className="text-base font-semibold text-primary hover:text-accent transition-colors">
+                                            +234 707 056 3194
                                         </a>
                                     </div>
                                 </div>

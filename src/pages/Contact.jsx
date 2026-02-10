@@ -34,8 +34,8 @@ const Contact = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h3 className="text-sm font-medium text-slate-500">Email</h3>
-                                        <a href="mailto:Mubarakaminu08@gmail.com" className="text-lg font-semibold text-primary hover:text-accent transition-colors">
-                                            Mubarakaminu08@gmail.com
+                                        <a href="mailto:mubarakmas08@gmail.com" className="text-lg font-semibold text-primary hover:text-accent transition-colors">
+                                            mubarakmas08@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -46,8 +46,8 @@ const Contact = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h3 className="text-sm font-medium text-slate-500">Phone</h3>
-                                        <a href="tel:+2348061513531" className="text-lg font-semibold text-primary hover:text-accent transition-colors">
-                                            +234 806 151 3531
+                                        <a href="tel:+2347070563194" className="text-lg font-semibold text-primary hover:text-accent transition-colors">
+                                            +234 0707 056 3194
                                         </a>
                                     </div>
                                 </div>
